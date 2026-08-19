@@ -1206,10 +1206,30 @@
             });
         }
 
+        function getAudioProxyBase() {
+            try {
+                const override = localStorage.getItem('quranAudioProxyBase');
+                if (override && override.trim()) {
+                    return override.replace(/\/+$/, '');
+                }
+            } catch (error) {
+                console.warn('تعذر قراءة إعداد البروكسي المحلي:', error);
+            }
+
+            const hostname = window.location && window.location.hostname ? window.location.hostname : 'localhost';
+            const protocol = window.location && window.location.protocol ? window.location.protocol : 'http:';
+            const isLocalHost = ['localhost', '127.0.0.1', '::1'].includes(hostname);
+
+            if (isLocalHost) {
+                return 'http://localhost:3000/proxy/audio';
+            }
+
+            return protocol + '//' + hostname + ':3000/proxy/audio';
+        }
+
         async function proxyAudioUrl(url) {
             if (!url) return url;
-            const proxyBase = 'http://localhost:3000/proxy/audio?url=' + encodeURIComponent(url);
-            return proxyBase;
+            return getAudioProxyBase() + '?url=' + encodeURIComponent(url);
         }
 
         async function cacheAudioFile(url) {
