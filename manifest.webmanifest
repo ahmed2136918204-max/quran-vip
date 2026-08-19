@@ -1,0 +1,28 @@
+{
+  "id": "./",
+  "name": "بوابة القرآن الكريم التفاعلية",
+  "short_name": "البوابة القرآنية",
+  "description": "تلاوة وتدبر وحفظ مع أذكار وخطة ختمة ومساعد ذكي.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#05120d",
+  "theme_color": "#0b251b",
+  "icons": [
+    {
+      "src": "Gemini_Generated_Image_umrraiumrraiumrr.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "Gemini_Generated_Image_umrraiumrraiumrr.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
